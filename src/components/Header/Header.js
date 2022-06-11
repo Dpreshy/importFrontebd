@@ -16,7 +16,7 @@ export default function Header() {
         <Press>
           <Action to={'/'}><Button>Home</Button></Action>
           <Action to={'/about'}><Button>About us</Button></Action>
-          <Action to={'/services'}><Button>services</Button></Action>
+          <Action to={'/services'}><Button>Project</Button></Action>
           <Action to={'/contact'}><Button>Contact</Button></Action>
         </Press>
         <Tog>

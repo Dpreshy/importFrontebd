@@ -52,7 +52,7 @@ const SignUp = () => {
 					<Form onSubmit={onSubmit} >
 						<Holder>
 							<Label>User Name</Label>
-							<Input placeholder="userName" {...register("username")} />
+							<Input placeholder="fullname" {...register("fullname")} />
 							<Error>{errors.message && errors?.message.userName}</Error>
 						</Holder>
 						<Holder>
@@ -62,7 +62,7 @@ const SignUp = () => {
 						</Holder>
 						<Holder>
 							<Label>Phone Number</Label>
-							<Input placeholder="Phone Number" {...register("number")} />
+							<Input placeholder="Contact" {...register("number")} />
 							<Error>{errors.message && errors?.message.password}</Error>
 						</Holder>
 						<Holder>
