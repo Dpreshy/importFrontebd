@@ -1,232 +1,115 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import axios from "axios";
+import React from 'react'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const SignUp = () => {
-	const navigate = useNavigate();
-
-	const formSchema = yup.object().shape({
-		fullname: yup.string().required("This field cannot be empty"),
-		email: yup.string().email().required("This field cannot be empty"),
-		contact: yup.string().required("This field cannot be empty"),
-		message: yup.string().required("This field cannot be empty"),
-	});
-
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({
-		resolver: yupResolver(formSchema),
-	});
-
-
-	const onSubmit = handleSubmit(async (value) => {
-		console.log(value);
-		const { username, email, number, message } = value;
-		const url = "http://localhost:2000/api/post";
-
-
-
-		await axios.post(url, {
-			username, email, number, message
-		}).then((res) => {
-			console.log("Error Data: ", res);
-		});
-
-		navigate("/login");
-	});
-
-	return (
-		<Container>
-			<Wrapper>
-				<Card>
-					<ImageHolder>
-						<h3>Contact Us</h3>
-					</ImageHolder>
-
-					<Form onSubmit={onSubmit} >
-						<Holder>
-							<Label>User Name</Label>
-							<Input placeholder="fullname" {...register("fullname")} />
-							<Error>{errors.message && errors?.message.userName}</Error>
-						</Holder>
-						<Holder>
-							<Label>Email</Label>
-							<Input placeholder="email" {...register("email")} />
-							<Error>{errors.message && errors?.message.email}</Error>
-						</Holder>
-						<Holder>
-							<Label>Phone Number</Label>
-							<Input placeholder="Contact" {...register("number")} />
-							<Error>{errors.message && errors?.message.password}</Error>
-						</Holder>
-						<Holder>
-							<Label>Message</Label>
-							<Input1 placeholder="What do you want?" {...register("message")} />
-							<Error>{errors.message && errors?.message.confirm}</Error>
-						</Holder>
-
-						<Button type="submit">submit</Button>
-					</Form>
-				</Card>
-			</Wrapper>
-		</Container>
-	);
-};
-
-export default SignUp;
-
-const Span = styled(Link)`
-	margin-left: 5px;
-	text-decoration: none;
-	color: darkorange;
-	cursor: pointer;
-`;
-
-const Div = styled.div`
-	display: flex;
-	margin-top: 10px;
-`;
-
-const Button = styled.button`
-	width: 80%;
-	margin-top: 30px;
-	height: 40px;
-	font-family: Poppins;
-	font-size: 20px;
-	text-transform: uppercase;
-	color: white;
-	font-weight: 300;
-	outline: none;
-	border: 0;
-	background-color: #5699AE;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-
-	transition: all 350ms;
-	:hover {
-		cursor: pointer;
-		transform: scale(1.01);
-	}
-`;
-
-const Error = styled.div`
-	color: red;
-	font-weight: 500;
-	font-size: 12px;
-`;
-
-const Input1 = styled.input`
-	width: 100%;
-	height: 100px;
-	border-radius: 3px;
-	padding-left: 5px;
-	::placeholder {
-		font-family: Poppins;
-	}
-	border: 1px solid silver;
-	outline: none;
-`;
-const Input = styled.input`
-	width: 100%;
-	height: 30px;
-	border-radius: 3px;
-	padding-left: 5px;
-	::placeholder {
-		font-family: Poppins;
-	}
-	border: 1px solid silver;
-	outline: none;
-`;
-
-const Label = styled.label`
-	font-weight: 500;
-`;
-
-const Holder = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 80%;
-	align-items: flex-start;
-	margin-top: 10px;
-`;
-
-const Form = styled.form`
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 28px;
-`;
-
-const ImageInput = styled.input`
-	display: none;
-`;
-
-const ImageLabel = styled.label`
-	padding: 10px 20px;
-	background-color: #5699AE;
-	color: white;
-	border-radius: 3px;
-	transition: all 350ms;
-	:hover {
-		cursor: pointer;
-		transform: scale(1.01);
-	}
-`;
-
-const ImageHolder = styled.div`
-	width: 100%;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-`;
-
-const Image = styled.img`
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-	border-radius: 50%;
-	background-color: darkorange;
-	margin-bottom: 20px;
-
-	transition: all 350ms;
-	:hover {
-		cursor: pointer;
-		transform: scale(1.02);
-	}
-`;
-
-const Card = styled.div`
-	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-	width: 500px;
-	min-height: 650px;
-	border-radius: 5px;
-	display: flex;
-	justify-content: center;
-	padding: 20px 0;
-	flex-direction: column;
-`;
-
-const Wrapper = styled.div`
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	display: flex;
-	align-items: center;
-`;
+export default function Register() {
+  return (
+    <Container>
+      <Wrapper >
+        <Gr>Contact Us</Gr>
+        <Put>
+          <input type="text" placeholder='Name' />
+          <input type="email" placeholder='Email' />
+          <input type="" placeholder='Phone' />
+          <textarea type="text" placeholder='Message' />
+        </Put>
+        <Button type='submit'>Send</Button>
+        
+      </Wrapper>
+    </Container>
+  )
+}
 
 const Container = styled.div`
-	width: 100%;
-	height: calc(100vh - 70px);
-	padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 170px);
+  color: #fff;
+  padding-top: 60px;
+`;
+const Wrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  background-color: #3E635B;
+  border-radius: 10px;
+  width: 600px;
+  margin: 20px 0;
+
+  @media screen and (max-width: 768px){
+    width: 400px;
+  }
+`;
+const Put = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  input{
+    margin: 8px;
+    padding: 10px;
+    width: 350px;
+    height: 18px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-size: 0.9rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-family: "poppins";
+  }
+
+  textarea{
+      resize: none;
+      outline: none;
+      border: none;
+      width: 350px;
+      border-radius: 10px;
+      padding: 10px;
+      height: 200px;
+      margin: 8px;
+      font-size: 1rem;
+      font-family: "poppins";
+
+  }
+`;
+const Gr = styled.div`
+font-size: 1.5rem;
+margin: 8px 0;
+`;
+const Info = styled.div`
+margin-bottom: 10px;
+`;
+
+
+const Button = styled.button`
+  width: 120px;
+  height:35px;
+  margin: 10px;
+  border-radius: 20px;
+  outline: none;
+  border: 2px solid #fff;
+  font-size: 1.1rem;
+  background-color: transparent;
+  transform: scale(1);
+  transition: all 400ms;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color: #fff;
+
+
+  :hover{
+    cursor: pointer;
+    transform: scale(0.9)
+  }
+`;
+
+const A = styled(Link)`
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
 `;

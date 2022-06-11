@@ -20,10 +20,7 @@ We aim to eliminate the task of dividing your project between different architec
 <br/>
 We are a company that offers design and build services for you from initial sketches to the final construction.
         </SubTitle>
-        <NavLink to="/signup">
-          <button>Get Started</button>
-        </NavLink>
-
+       
       </MainTitle>
       </Wrapper>
       <Mini/>
@@ -94,6 +91,12 @@ const Title = styled.div`
 const SubTitle = styled.div`
   color: #fff;
   margin-bottom: 20px;
-  width: 95%;
-  font-size:20px;
+  width: 75%;
+  font-size:25px;
+  text-transform: capitalize ;
+
+  @media screen and (max-width: 520px){
+  font-size:15px;
+   
+  }
 `;

@@ -67,7 +67,7 @@ flex-wrap: wrap;
 `;
 
 const Container = styled.div`
-padding-top: 80px;
+/* padding-top: 80px; */
 display: flex;
 justify-content: center;
 align-items: center;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import {Link} from "react-router-dom"
 
 
 export default function Foot() {
@@ -14,7 +14,10 @@ export default function Foot() {
                 <Info>What we do</Info>
               
                 <Text>We are experts in our field with the comprehensive and country-specific knowhow, robust resources and skills to deliver quality results, on time and within budget, no matter the project scope or challenge.</Text>
+                <Link to="/service">
               <Button>See More</Button>
+                
+                </Link>
             </Box2>
         </Wrapper>
     </Container>
@@ -30,7 +33,8 @@ background-color:#3e635b;
 border:0 ;
 outline: none;
 color:white ;
-margin-top:20px ;
+cursor:pointer ;
+margin-bottom:20px ;
 border-radius:7px ;
 
 `
@@ -48,7 +52,7 @@ display: flex;
 font-family:poppins ;
 justify-content: center;
 align-items: center;
-margin-top: 20px;
+/* margin-top: 20px; */
 
 @media screen and (max-width: 768px){
    margin-top: -10px;
@@ -109,7 +113,7 @@ margin: 0 10px;
 const Text = styled.div`
 font-size: 1rem;
 margin: 5px 0;
-margin-top:20px;
+margin-bottom:20px;
 
 @media screen and (max-width: 768px){
     width: 400px;

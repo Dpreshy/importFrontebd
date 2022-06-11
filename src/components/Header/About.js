@@ -73,6 +73,8 @@ margin-top: -20px;
 `;
 const Title = styled.h2`
 font-size: 45px;
+padding-top: 60px;
+
 `;
 const Wrapper4 = styled.div`
 width: 75%;

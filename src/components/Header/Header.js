@@ -1,46 +1,41 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
-import { GiCancel } from "react-icons/gi";
-
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const Header = ({ cl, col }) => {
+// import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
+
+const Header = () => {
   return (
     <Container>
       <Wrapper>
-        <Logo>
-          <img src="/assets/logo.png" />
-        </Logo>
-        <Navhold>
-         
-          <Link to="/" >
-            <Navs>HOME</Navs>
-          </Link>
-          <a href="/about">
-            <Navs>ABOUT US</Navs>
-          </a>
-          <Link to="/service">
-            <Navs>SERVICES</Navs>
-          </Link>
+        <Logohd>
+          <Logo src="/assets/logo.png" alt="" />
+        </Logohd>
+        <Navs>
+          <Nav1 to="/">Home</Nav1>
+          <Nav2 to="/about">About</Nav2>
+          <Nav3 to="/service">Service</Nav3>
+          <Nav3 to="/contact">Contact</Nav3>
+     
 
-          <Link to="/contact">
-            <Navs>CONTACT</Navs>
+
+          <Link to="SignUp">
+            <IconUser></IconUser>
           </Link>
-        </Navhold>
-        
+        </Navs>
         <Menu>
           <AiOutlineMenu
             id="menu"
-            fontSize="25px"
             onClick={() => {
-              document.getElementById("sidebar").style.width = "250px";
+              document.getElementById("sidebar").style.width = "270px";
               document.getElementById("menu").style.display = "none";
               document.getElementById("close").style.display = "block";
             }}
           />
-          <GiCancel
+          <AiOutlineClose
             id="close"
-            fontSize="25px"
             style={{
               display: "none",
             }}
@@ -51,24 +46,21 @@ const Header = ({ cl, col }) => {
             }}
           />
         </Menu>
-        <Sidebar id="sidebar">
-          <Hold>
-            
-          <Link to="/">
-            <Navs1>HOME</Navs1>
-          </Link>
-          <a href="/about">
-            <Navs1>ABOUT US</Navs1>
-          </a>
-          <Link to="/service">
-            <Navs1>SERVICES</Navs1>
-          </Link>
+        <SideBar id="sidebar">
+          <Sider>
+            <SideNav to="/">Home</SideNav>
+            <SideNav to="/about">About</SideNav>
+            <SideNav to="/service">Service</SideNav>
+            <SideNav to="/contact">Contact</SideNav>
 
-          <Link to="/contact">
-            <Navs1>CONTACT</Navs1>
-          </Link>
-          </Hold>
-        </Sidebar>
+          </Sider>
+          <Logonav src="/assets/logo.png" alt=""/>
+        </SideBar>
+        {/* <Btnhold>
+          <Icon>
+            <AiOutlineMenu size={"20px"} />
+          </Icon>
+        </Btnhold> */}
       </Wrapper>
     </Container>
   );
@@ -76,108 +68,141 @@ const Header = ({ cl, col }) => {
 
 export default Header;
 
-
-
-const Navs1 = styled.div`
-  margin-top: 35px;
-  font-weight: bold;
-  text-decoration:none;
-  font-size: 17px;
-  color: white;
-  border-bottom: 2px solid ${({ cl }) => (cl ? "gray" : "tranparent")};
-  padding: ${({ cl }) => (cl ? "2px 0" : "0 0")};
-  margin-bottom: ${({ mb }) => (mb ? "3px" : "0")};
-  cursor: pointer;
-`;
-
-
-const Hold = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content:center;
-  flex: 1;
-  margin-top:50px ;
-
-`;
 const Menu = styled.div`
   display: none;
-  @media (max-width: 800px) {
+  font-size: 20px;
+  @media screen and (max-width: 768px) {
     display: block;
   }
 `;
-const Sidebar = styled.div`
-  z-index: 10;
-  transition: all 950ms;
-  overflow: hidden;
+const SideBar = styled.div`
   width: 0;
   height: 100vh;
-  background-color:rgba(0,0,0,0.5);
-  background-color: black;
   position: fixed;
+  background: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   display: none;
-  @media (max-width: 768px) {
+  transition: 300ms;
+  overflow: hidden;
+  @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
+  /* @media screen and (max-width: 320px) {
+    width: 300px;
+  } */
 `;
-
-
-const Navs = styled.div`
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: bold;
-  font-size: 15px;
-  color: #fff;
-  border-bottom: 2px solid ${({ cl }) => (cl ? "blue" : "tranparent")};
-  padding: ${({ cl }) => (cl ? "2px 0" : "0 0")};
-  cursor: pointer;
-`;
-const Navhold = styled.div`
-  @media (max-width: 800px) {
-    display: none;
-  }
-  display: flex;
-  align-items: center;
-`;
-const Logo = styled.div`
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 30px;
+const SideNav = styled(Link)`
   color: white;
+  margin-top: 50px;
+  text-decoration: none;
+`;
+const Logonav = styled.img`
+  margin-bottom: 20px;
+  height: 90px;
+  width: 100px;
+`;
+const Sider = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  /* background: red; */
+`;
+
+const Container = styled.div`
+  height: 70px;
+  width: 100%;
+  /* background-color: gray; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: gray; */
-  height: 32px;
-  img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-  }
-  span {
-    color: blue;
-    font-size: 40px;
-    margin-bottom: 14px;
-  }
+  position: fixed;
+  backdrop-filter: blur(10px);
 `;
 const Wrapper = styled.div`
+  height: 50px;
+  width: 85%;
+  height: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: 850px; */
-  height: 80px;
-  width: 100%;
+  /* background-color: green; */
 `;
-const Container = styled.div`
+const Logohd = styled.div`
+  font-weight: 900;
+  margin-top:10px ;
+`;
+const Logo = styled.img`
+  height: 70px;
+  width: 100px;
+`;
+const Navs = styled.div`
+  width: 300px;
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+const Nav1 = styled(Link)`
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+`;
+const Nav2 = styled(Link)`
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+`;
+const Nav3 = styled(Link)`
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+`;
+const Btnhold = styled.div`
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color:black;
-  /* border-bottom: 1.5px solid lightgray; */
-  background-color:  #3e635b;
+  /* background: blue; */
 `;
+
+const Icon = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+const IconUser = styled(FaUserCircle)`
+  font-size: 25px;
+  display: none;
+  color: blue;
+  :hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    // background: blue;
+  }
+`;
+// const Wrapper = styled.div``;
+// const Wrapper = styled.div``;
+// const Wrapper = styled.div``;
