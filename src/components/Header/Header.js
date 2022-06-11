@@ -120,6 +120,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
+  /* overflow: hidden; */
   backdrop-filter: blur(10px);
 `;
 const Wrapper = styled.div`
@@ -141,7 +142,7 @@ const Logo = styled.img`
 `;
 const Navs = styled.div`
   width: 300px;
-  /* background: red; */
+font-family:Poppins;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -151,7 +152,7 @@ const Navs = styled.div`
 `;
 const Nav1 = styled(Link)`
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   color: black;
   text-decoration: none;
   :hover {
@@ -161,7 +162,7 @@ const Nav1 = styled(Link)`
 `;
 const Nav2 = styled(Link)`
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   color: black;
   text-decoration: none;
   :hover {
@@ -171,7 +172,7 @@ const Nav2 = styled(Link)`
 `;
 const Nav3 = styled(Link)`
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   color: black;
   text-decoration: none;
   :hover {

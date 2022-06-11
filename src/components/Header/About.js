@@ -47,6 +47,8 @@ export default function About() {
 const Container = styled.div`
 padding-bottom: 60px;
 font-family:poppins ;
+overflow: hidden;
+
 display: flex;
 justify-content: center;
 align-items: center;

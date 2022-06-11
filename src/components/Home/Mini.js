@@ -71,6 +71,8 @@ const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+overflow: hidden;
+
 flex-direction: column;
 width: 100%;
 `;
@@ -119,15 +121,19 @@ img{
     border-radius: 10px;
 }
 
-@media screen and (max-width: 768px){
+/* @media screen and (max-width: 768px){
         width: 95%;
         height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0 0;
-}
+} */
+
+
 `;
+
+
 const Box2 = styled.div`
 width: 500px;
 margin: 0 10px;

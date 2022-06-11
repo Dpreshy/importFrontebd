@@ -50,7 +50,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family:poppins ;                                                                                                                                                                                                                  
+  font-family:poppins ;
+  overflow: hidden;
+  ;                                                                                                                                                                                                                  
 `;
 const MainTitle = styled.div`
   height: 100%;

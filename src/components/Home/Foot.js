@@ -49,6 +49,8 @@ margin: 5px;
 const Container = styled.div`
 width: 100%;
 display: flex;
+overflow: hidden;
+
 font-family:poppins ;
 justify-content: center;
 align-items: center;

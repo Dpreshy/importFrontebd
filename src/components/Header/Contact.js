@@ -27,6 +27,8 @@ const Container = styled.div`
   width: 100%;
   min-height: calc(100vh - 170px);
   color: #fff;
+  overflow: hidden;
+
   padding-top: 60px;
 `;
 const Wrapper = styled.form`
@@ -86,10 +88,10 @@ margin-bottom: 10px;
 
 
 const Button = styled.button`
-  width: 120px;
+  width: 150px;
   height:35px;
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   outline: none;
   border: 2px solid #fff;
   font-size: 1.1rem;
